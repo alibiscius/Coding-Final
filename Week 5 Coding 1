@@ -1,0 +1,115 @@
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
+using namespace std;
+int main() {
+  std::cout << "Hello World!\n";
+  srand(time(0));
+  cout << "Here's a random number between 10 and 50.\n";
+  // rand for random number
+  cout << rand() % 41 + 10 << "\n\n";
+
+  // standard loop
+  // for (i for initilization, test, action) {code}
+  for (int i = 0; i < 10; i++) {
+    cout << i << "\n.";
+  }
+
+  // the 'break' keyword gets out of a loop or code block
+  // the 'continue' keyword jumps back to the top of the loop.
+
+  cout << "What number would you like me to count to? \n";
+  int input;
+  cin >> input;
+
+  for (int i = 0; i < 100; i++) {
+    // create another if statement
+    // to skip the number 13 because the computer is supersticious
+    // using the continue keyword
+    if (i == 13) {
+      cout << "Permission denied you have been stopped. \n";
+      continue;
+    }
+    cout << i << "\n";
+    if (i == input) {
+      cout << "Done!\n";
+      break;
+    }
+
+    for (int i = 0; i < 100; i += 5) {
+      cout << i << "\n";
+    }
+  }
+
+  // strings, strings are an ordered list of characters
+
+  string fullName = "Sir Ross Bootius III ";
+
+  cout << "My name is " << fullName << "\n";
+
+  cout << "There are " << fullName.size() << " characters in my name. \n";
+
+  cout << "My first initial is " << fullName[0] << ".\n";
+  // can you get all of the iitials
+
+  cout << "My second initial is " << fullName[4] << ".\n";
+
+  cout << "My third initial is " << fullName[9] << ".\n";
+
+  // can we use a for loop to add a space between every character
+  // can we find the initials with a for loop
+
+  for (int i = 0; i < fullName.size(); i++) {
+    cout << fullName[i] << " ";
+  }
+
+  cout << "\n\n";
+
+  cout << "All the initials \n";
+  cout << fullName[0];
+  for (int i = 0; i < fullName.size(); i++) {
+    // only output the character if it is after a space.
+    if (fullName[i] == ' ')
+      // output the character after i.
+      cout << fullName[i + 1];
+  }
+
+  cout << "\n\n";
+
+  // build an array
+  // an array is a list.
+  // we're going to build an inventory.
+  // all of the things will be strings. (all the random shit in your pockets)
+
+  string inventory[5]; // here's a list with 5 spots in it.
+  inventory[0] = "Short sword";
+  cout << "You picked up a " << inventory[0] << "\n";
+  inventory[1] = "Leather Armor";
+  cout << "You found a set of " << inventory[1] << "\n";
+  inventory[2] = "Diamond necklace";
+  cout << "You found a precious " << inventory[2] << "\n";
+  inventory[3] = "Steel boots";
+  cout << "You found a set of " << inventory[3] << "\n";
+  inventory[4] = "egg";
+  cout << "You found " << inventory[4] << "\n";
+
+  cout << "The random shit in your pockets...\n";
+  for (int i = 0; i < 5; i++) {
+    if (inventory[i] == "") {
+      continue;
+    }
+    cout << inventory[i] << "\n";
+  }
+
+  // a collection initializer adds items to the array all at once.
+
+  string colors[] = {"Red", "Green", "Yellow", "Blue", "Black"};
+
+  for (int i = 0; i < 5; i++) {
+    if (colors[i] == "") {
+      break;
+    }
+    cout << i + 1 << ". " << colors[i] << "\n";
+  }
+}
