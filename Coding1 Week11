@@ -1,0 +1,52 @@
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
+using namespace std;
+string food[5];
+class dinosaur {
+public:
+  string name;
+  int health;
+  int favFood;
+
+  dinosaur() {
+    cout << "A new dinosaur has appeared!\n";
+    name = "Dinosaur";
+    health = 10;
+    favFood = rand() % 5;
+  }
+
+  dinosaur(string givenName, int givenHealth) {
+    cout << "A new dinosaur has appeared! ";
+    name = givenName;
+    health = givenHealth;
+    favFood = rand() % 5;
+    status();
+    favSnack();
+  }
+  void status() {
+    cout << "It is called " << name << " and its health is " << health << "\n";
+  }
+  void favSnack() {
+    cout << name << "'s favorite food is " << food[favFood] << ".\n";
+  }
+};
+dinosaur dinosaurs[10];
+
+int main() {
+  srand(time(0));
+  food[0] = "Raspberries";
+  food[1] = "Corn";
+  food[2] = "Mushrooms";
+  food[3] = "Apples";
+  food[4] = "Oranges";
+
+  string dinosaurNames[7] = {"Parasaur",     "Brontosaurus", "Microraptor",
+                             "Stegosaurus",  "Anklyosaurus", "Iguanodon",
+                             "Brachiosaurus"};
+
+  for (int i = 0; i < 10; i++) {
+    dinosaurs[i] = dinosaur(dinosaurNames[rand() % 6], rand() % 11 + 5);
+  }
+}
