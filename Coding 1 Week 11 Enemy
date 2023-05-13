@@ -1,0 +1,53 @@
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+using namespace std;
+
+// create a new class of your own design, with at least two data members, a
+// constructor thaat will randomly populate the data or allow for customization.
+// (example: robots("artoo",5)). a status() member function and at least one
+// other function
+// also create a UML map for the class, either on paper or digitally.
+
+class dragur {
+public: // let everyone see the name and charge
+  string name;
+  int health;
+  int armor;
+  // create a constructor
+  // a constructor is always named the same as the class, and has no return
+  // type. this function runs when a new robot variable is created.
+  dragur() {
+    cout << "Creating a new enemy... \n";
+    name = "Bob";
+    health = 20;
+    armor = rand() % 5;
+    cout << "A dragur appears!\n";
+  }
+
+  void status() { cout << "[" << name << ": " << health << "]\n"; }
+};
+void startCombat(dragur givenDragur) {
+  cout << "Let the combat commence...\n";
+  for (int i = 0; i < 10; i++) {
+    givenDragur.health -= 1;
+  }
+  if (givenDragur.health <= 0) {
+    cout << givenDragur.name << " has run out of health.  \n";
+  }
+}
+
+int main() {
+  std::cout << "You approach an ancient, decrepit crypt.\n";
+
+  dragur Bob;
+  Bob.name = "Bob";
+  Bob.health = 50;
+  cout << Bob.name << "\n";
+  cout << Bob.name << "'s health is " << Bob.health << "\n";
+  startCombat(Bob);
+
+  for (int i = 0; i < 10; i++) {
+    
+  }
+}
