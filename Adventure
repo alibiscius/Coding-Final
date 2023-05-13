@@ -1,0 +1,58 @@
+#include <iostream>
+#include <ctime>
+#include <iostream>
+#include <string>
+using namespace std; 
+int health = 50;
+int totalTreasure = 0;
+int rollDie(int side= 6, int min=1){
+  int roll=rand() % side + min;
+  return roll;
+}
+int attack (int sides=6, int min=1){
+  int attack= rand () % sides + min; 
+  return attack;
+}
+int block (int sides=6, int min=1){
+  int block= rand () % sides + min; 
+  return block;
+}
+
+bool askYN(string question= "Keep playing?"){
+  while (true){
+cout << question << "(y/n)\n"; 
+  char input;
+  cin >> input;
+
+    if (input == 'y') {
+      return true;
+      }else if (input == 'n'){
+      return false;
+      }
+    }
+  }
+void story(string message) { cout << message << "\n"; }
+int main() {
+  story("You wake up in a clearing, not knowing where you are or how you got there, you venture forth to find out how you ended up here.");
+  cout << "you have" << health << "health \n.";
+  while (true) {
+    if (askYN("Are you ready to discover your destiny?")== true){
+      cout << "Let's go \n";
+      if (attack(45)> block(20)){
+        health -= attack();
+        cout << "your health is low" <<health<< "\n";
+        }else{
+        cout << "you have successfully defended yourself against a monster attack.\n";
+        }
+      totalTreasure += rollDie(125);
+      cout<< "You now have " <<totalTreasure<< " Gold\n";
+      }else {
+      cout<< "Thank you for playing!\n";
+      break;
+      }
+    if (health<= 0) {
+      cout<< "You have died trying to find your destiny.\n";
+      break;
+      }
+        }
+      }
